@@ -9,6 +9,9 @@ version '0.0.1'
 source_url 'https://github.com/copious-cookbooks/ntp'
 issues_url 'https://github.com/copious-cookbooks/ntp/issues'
 
-# supports 'ubuntu'
-# supports 'debian'
-# supports 'centos'
+supports 'ubuntu'
+supports 'debian'
+supports 'centos'
+
+depends 'apt'
+depends 'yum'
