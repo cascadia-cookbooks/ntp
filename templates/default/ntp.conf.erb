@@ -1,21 +1,18 @@
 # This file is managed by Chef. Changes will be overwritten.
 # /etc/ntp.conf, configuration for ntpd; see ntp.conf(5) for help
 
-driftfile /var/lib/ntp/ntp.drift
+driftfile <%= node['ntp']['drift_file'] %>
 
 statistics loopstats peerstats clockstats
 filegen loopstats file loopstats type day enable
 filegen peerstats file peerstats type day enable
 filegen clockstats file clockstats type day enable
 
-# Specify one or more NTP servers
-<% if @servers -%>
-<% @servers.each do |server| -%>
+<% node['ntp']['servers'].each do |server| -%>
 server <%= server %>
 <% end -%>
-<% end -%>
 
-# Use Ubuntu ntp servers as a fallback
+# Fallback servers
 server 0.ubuntu.pool.ntp.org
 server 1.ubuntu.pool.ntp.org
 server ntp.ubuntu.com
@@ -29,8 +26,25 @@ restrict -6 default kod notrap nomodify nopeer noquery
 restrict 127.0.0.1
 restrict ::1
 
-# Additional options
+# Disable the monitoring facility to prevent amplification attacks using ntpdc
+# monlist command when default restrict does not include the noquery flag. See
+# CVE-2013-5211 for more details.
+# Note: Monitoring will not be disabled with the limited restriction flag.
+disable monitor
+
+<% if node['ntp']['secure_opts'] == true %>
+# Enable public key cryptography.
+#crypto
+
+includefile /etc/ntp/crypto/pw
+
+# Key file containing the keys and key identifiers used when operating
+# with symmetric key cryptography.
+keys /etc/ntp/keys
+<% end %>
+
 <% if @options %>
+# Additional options
 <% @options.each do |option| %>
 <%= option %>
 <% end %>
