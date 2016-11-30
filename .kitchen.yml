@@ -4,15 +4,19 @@ driver:
 
 provisioner:
   name: chef_zero
-  require_chef_omnibus: 12.10.24
 
 platforms:
+  - name: ubuntu-12.04
   - name: ubuntu-14.04
   - name: ubuntu-16.04
+  - name: centos-6.8
   - name: centos-7.2
+  - name: fedora-22
+  - name: debian-7.11
+  - name: debian-8.6
 
 suites:
   - name: default
     run_list:
       - recipe[cop_ntp::default]
-    attributes:
+    attributes: { ntp: { aggresive: true } }

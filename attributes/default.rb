@@ -2,7 +2,7 @@ case node['platform_family']
 when 'ubuntu', 'debian'
     default['ntp']['service']    = 'ntp'
     default['ntp']['drift_file'] = '/var/lib/ntp/ntp.drift'
-when 'rhel', 'centos'
+when 'rhel', 'centos', 'fedora'
     default['ntp']['service']     = 'ntpd'
     default['ntp']['drift_file']  = '/var/lib/ntp/drift'
     default['ntp']['secure_opts'] = true
