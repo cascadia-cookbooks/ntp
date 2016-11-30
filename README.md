@@ -1,10 +1,11 @@
 # NTP Cookbook
-This will configure the NTP service.
+This will configure the NTP service. It can also correct time offsets.
 
 ## Platforms
-- Ubuntu 14.04
-- Ubuntu 16.04
-- RHEL/Centos 7
+- Ubuntu 
+- Debian
+- Rhel
+- Fedora
 
 ## Attributes
 * `node['ntp']['aggresive']` (boolean) defaults to `true`, when `true` it will stop the NTP
