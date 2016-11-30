@@ -4,17 +4,12 @@
 # Author:: Copious Inc. <engineering@copiousinc.com>
 #
 
-case node['platform_family']
-when 'ubuntu', 'debian'
-    include_recipe 'apt'
-when 'rhel', 'centos'
-    include_recipe 'yum'
-end
+include_recipe 'cop_ntp::dependencies'
 
 ntp = node['ntp']['service']
 
-node['ntp']['packages'].each do |package|
-    package package do
+node['ntp']['packages'].each do |p|
+    package p do
         action :install
     end
 end
