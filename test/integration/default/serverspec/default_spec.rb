@@ -8,7 +8,7 @@ describe 'cop_ntp::default' do
     service = 'ntpd'
   end
 
-  describe package(service) do
+  describe package('ntp') do
     it { should be_installed }
   end
 
@@ -30,6 +30,6 @@ describe 'cop_ntp::default' do
 
   it 'the ntp offset is below the limit' do
     offset = `ntpq -nc peers | tail -n +3 | cut -c 62-66 | tr -d '-' | tr -d ' ' | sort -nr | head -n1`.to_i
-    expect(offset.to_i).to be <= 100
+    expect(offset).to be <= 100
   end
 end
