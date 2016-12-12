@@ -13,5 +13,4 @@ supports 'ubuntu'
 supports 'debian'
 supports 'centos'
 
-depends 'apt'
-depends 'yum'
+depends 'cop_base'
