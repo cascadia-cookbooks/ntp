@@ -32,3 +32,7 @@ end
 service ntp do
     action [:enable,:start]
 end
+
+if node['ntp']['aggresive'] == true
+    include_recipe 'cop_ntp::aggresive'
+end
