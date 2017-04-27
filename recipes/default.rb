@@ -14,10 +14,6 @@ node['ntp']['packages'].each do |p|
     end
 end
 
-if node['ntp']['aggresive'] == true
-    include_recipe 'cop_ntp::aggresive'
-end
-
 template 'installing ntp config file' do
     path      '/etc/ntp.conf'
     cookbook  'cop_ntp'
@@ -34,5 +30,5 @@ template 'installing ntp config file' do
 end
 
 service ntp do
-    action :enable
+    action [:enable,:start]
 end
