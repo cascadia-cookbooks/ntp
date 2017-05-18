@@ -19,4 +19,4 @@ suites:
       - recipe[cop_ntp::default]
     attributes:
       ntp:
-        aggresive: true
+        aggressive: true

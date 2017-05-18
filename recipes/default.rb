@@ -33,6 +33,6 @@ service ntp do
     action [:enable,:start]
 end
 
-if node['ntp']['aggresive'] == true
-    include_recipe 'cop_ntp::aggresive'
+if node['ntp']['aggressive'] == true
+    include_recipe 'cop_ntp::aggressive'
 end

@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: cop_ntp
-# Recipe:: aggresive
+# Recipe:: aggressive
 # Author:: Copious Inc. <engineering@copiousinc.com>
 #
 
