@@ -17,4 +17,6 @@ suites:
   - name: default
     run_list:
       - recipe[cop_ntp::default]
-    attributes: { ntp: { aggresive: true } }
+    attributes:
+      ntp:
+        aggresive: true
