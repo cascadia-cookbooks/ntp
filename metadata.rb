@@ -11,7 +11,7 @@ issues_url 'https://github.com/copious-cookbooks/ntp/issues'
 
 supports 'ubuntu', '>=14.04'
 supports 'debian', '>=7'
-supports 'centos', '>=7'
-supports 'rhel', '>=7'
+supports 'centos', '>=6'
+supports 'rhel', '>=6'
 
 depends 'cop_base'
