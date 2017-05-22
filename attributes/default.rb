@@ -9,7 +9,7 @@ when 'rhel', 'centos', 'fedora'
 end
 
 default['ntp']['packages']     = %w{ntp ntpdate}
-default['ntp']['aggresive']    = true
+default['ntp']['aggressive']   = true
 default['ntp']['offset_limit'] = 100
 
 default['ntp']['servers'] = %w{
