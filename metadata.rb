@@ -10,8 +10,8 @@ source_url 'https://github.com/copious-cookbooks/ntp'
 issues_url 'https://github.com/copious-cookbooks/ntp/issues'
 
 supports 'ubuntu', '>= 14.04'
-supports 'debian', '>= 8'
-supports 'rhel', '>= 7'
-supports 'centos', '>= 7'
+supports 'debian', '>= 8.0'
+supports 'redhat', '>= 7.0'
+supports 'centos', '>= 7.0'
 
 depends 'cop_base'
